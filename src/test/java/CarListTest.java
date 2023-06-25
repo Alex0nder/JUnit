@@ -6,8 +6,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CarListTest {
 
+    //Наша система
     private CarList carList;
 
+    //
     @Before
     public void setUp() throws Exception {
         carList = new CarArrayList();
@@ -16,11 +18,13 @@ public class CarListTest {
         }
     }
 
+    //Протестируем что добавление успешно на 100 элементов
     @Test
     public void WhenAdded100ElementsThenSizeMustBe100() {
         assertEquals(100, carList.size());
     }
 
+    //
     @Test
     public void whenElementRemovedByIndexThenSizeMustBeDecreased () {
         assertTrue(carList.removeAt(5));

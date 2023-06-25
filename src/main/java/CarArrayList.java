@@ -2,10 +2,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class CarArrayList implements CarList {
-    // Получение элемента по индексу - О(1)
-    // Вставка элемента в конце списка - О(1)
-    // Удаление элемента - О(N)
-    // Вставка элемента в середину или начало списка - О(N)
+    // Get element by index - O(1)
+    // Insert an element at the end of the list - O(1)
+    // Removing an element - O(N)
+    // Inserting an element in the middle or beginning of the list - O(N)
 
     private Car[] array = new Car[10];
     private int size = 0;
@@ -13,31 +13,38 @@ public class CarArrayList implements CarList {
     @Override
     public Car get(int index) {
         checkIndex(index);
-        // Алгоритмическая сложность операций: O(1) - операция выполняется за точное (константное)
-        // время, и не зависи от размера коллекций - лучшая алгоритмическая сложность, которая
-        // только возможна (операция происходит очень быстро)
+        // Algorithmic complexity of operations: O(1) - the operation is performed for exact (constant)
+        // time, and do not depend on the size of collections - the best algorithmic complexity that
+        // only possible (operation is very fast)
         return array[index];
     }
 
     @Override
     public void add(Car car) {
         increaseArray();
-        // Алгоритмическая сложность операций: O(1) - операция выполняется за точное (константное)
-        // время, и не зависи от размера коллекций - лучшая алгоритмическая сложность, которая
-        // только возможна (операция происходит очень быстро)
+        // Algorithmic complexity of operations: O(1) - the operation is performed for exact (constant)
+        // time, and do not depend on the size of collections - the best algorithmic complexity that
+        // only possible (operation is very fast)
         array[size] = car;
         size++;
 
     }
 
-    // Алгоритмическая сложность операций: O(N) - скорость выполнения операции напрямую зависит
-    // от размера коллекций. Чем больше элементов она содержит, тем дольше будет выполняться операция
+    // Algorithmic complexity of operations: O(N) - the speed of the operation directly depends
+    // on the size of the collections. The more elements it contains, the longer the operation will take.
     @Override
     public void add(Car car, int index) {
         increaseArray();
-        for (int i = size; i > index; i --) {
-            array[i] = array[i - 1];
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException();
         }
+//        if (size - index >= 0) {
+            // Safe memory
+        System.arraycopy(array, index, array, index + 1, size - index);
+//        }
+//        for (int i = size; i > index; i --) {
+//            array[i] = array[i - 1];
+//        }
         array[index] = car;
         size++;
     }
