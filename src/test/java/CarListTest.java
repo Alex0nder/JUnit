@@ -20,7 +20,7 @@ public class CarListTest {
 
     //Протестируем что добавление успешно на 100 элементов
     @Test
-    public void WhenAdded100ElementsThenSizeMustBe100() {
+    public void whenAdded100ElementsThenSizeMustBe100() {
         assertEquals(100, carList.size());
     }
 
