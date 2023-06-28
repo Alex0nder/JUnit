@@ -13,7 +13,7 @@ public class CarSetTest {
             carSet.add(new Car("Brand" + i, i));
         }
     }
-
+    // Add 3 object
     @Test
     public void whenAdd3SimilarObjectsThenSizeIncreaseBy1() {
         assertEquals(100, carSet.size());
@@ -23,12 +23,14 @@ public class CarSetTest {
         assertEquals(101, carSet.size());
     }
 
+    //Clear elements
     @Test
     public void whenSetClearedThenSize0() {
         carSet.clear();
         assertEquals(0, carSet.size());
     }
 
+    //Delete Array
     @Test
     public void whenElementRemovedThenSizeDecreased() {
         assertTrue(carSet.remove(new Car("Brand30", 30)));
